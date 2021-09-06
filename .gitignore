@@ -1,0 +1,7 @@
+book/__pycache__/
+book/management/commands/__pycache__/
+book/migrations/__pycache__/
+book/views/__pycache__/
+book_stall/__pycache__/
+subscribe/__pycache__/
+subscribe/migrations/__pycache__/

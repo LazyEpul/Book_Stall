@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" style="color: aquamarine;">
+    
+</head>
+<body>
+
+    <h1>Book Registration</h1><hr>
+    
+    <form action="{% url 'home' %}" method="POST">
+        {% csrf_token %}
+
+        {% if single_book %}
+        <div class="mb-3 col-sm-3">
+          <label  class="form-label">ID</label>
+          <input type="number" class="form-control" value="{{single_book.id}}" name="id" readonly >
+          {% endif %}
+
+        </div>
+        <div class="mb-3 col-sm-3">
+          <label  class="form-label">Book Name</label>
+          <input type="text" class="form-control" value="{{single_book.name}}" placeholder="Enter Book Name" name="nm" >
+        </div>
+
+        <div class="mb-3 col-sm-3">
+            <label  class="form-label">Quantity</label>
+            <input type="number" class="form-control" value="{{single_book.qty}}" placeholder="Enter Quantity of Books " name="qty" >
+          </div>
+
+          <div class="mb-3 col-sm-3">
+            <label  class="form-label">Price</label>
+            <input type="number" class="form-control" value="{{single_book.price}}" placeholder="Enter Price of Book" name="price" >
+          </div>
+          {% if single_book.is_publish %}
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ispub" value="Yes" checked>
+            <label class="form-check-label" >
+              Published
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ispub" value="No" >
+            <label class="form-check-label"  >
+              Not Published
+            </label>
+            </div>
+          {% else %}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="ispub" value="Yes"  >
+            <label class="form-check-label" >
+              Published
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ispub" value="No"  checked>
+            <label class="form-check-label" >
+              Not Published
+            </label>
+          </div>
+         {% endif %}
+        
+         <br><br>
+         {% if single_book %}
+        <button type="submit" class="btn btn-success">Update Book</button>
+         {% else %}
+        <button type="submit" class="btn btn-success">Add Book</button>
+         {% endif %}
+        <a href="/show-books/" class="btn btn-warning">Show Stock</a>
+    
+      </form>
+     
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
