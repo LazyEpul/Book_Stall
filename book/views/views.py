@@ -109,4 +109,5 @@ def restore_book(request,id):
     return redirect('stock')
 
 def test_function(request):
+    """added a dogstring"""
     pass
