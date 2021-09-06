@@ -113,3 +113,5 @@ def test_function(request):
     pass
 """adding new line in master branch"""
 
+def people():
+    pass
