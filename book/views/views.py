@@ -128,8 +128,3 @@ def restore_book(request, id):
     res_book.is_deleted = "0"
     res_book.save()
     return redirect('stock')
-
-
-def test_function(request):
-    """added a dogstring"""
-    pass
